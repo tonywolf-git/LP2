@@ -1,17 +1,109 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Duel</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="md-settings"></ion-icon>
+      </button>
+      <!--<button ion-button icon-only (click)="chooseBg()">
+        <ion-icon name="md-cloud-upload"></ion-icon>
+      </button>-->
+      <button ion-button icon-only (click)="showPlayers()">
+        <ion-icon name="md-person-add"></ion-icon>
+      </button>
+      <!--<button ion-button icon-only (click)="checkBg()">
+        <ion-icon name="md-images"></ion-icon>
+      </button>-->
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding text-center id="elBG" class="bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content style="background-color: none !important;"
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!--<ion-refresher (ionRefresh)="reiniciar($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to Restart Duel"
+      refreshingSpinner="circles"
+      refreshingText="Restarting...">
+    </ion-refresher-content>
+  </ion-refresher>-->
+
+  <!--<ion-item>
+    <ion-label>Players</ion-label>
+    <ion-select [(ngModel)]="playerNumber" (ngModelChange)="playersChanged(playerNumber)">
+      <ion-option value="1">1</ion-option>
+      <ion-option value="2">2</ion-option>
+      <ion-option value="3">3</ion-option>
+      <ion-option value="4">4</ion-option>
+    </ion-select>
+  </ion-item>-->
+
+  <!--TEST IMAGE GOES HERE-->
+  <!--<img [src]="imagenCosa">-->
+  
+  <!--PLAYER LP GOES HERE-->
+  <div *ngIf="modoSimple =='false'" class="wrapper">
+    <div *ngFor="let player of players">
+      <div class="player" text-center style="width: 95%; margin: auto;">
+        <div id="player{{ player.id }}" class="playerPoints" style="width: calc(95%); margin: auto;">
+          {{ player.lp }}
+        </div>
+          <span class="espacio"></span>
+        <div class="remaddCont" style="display: flex;">
+          <div class="remadd remaddRem" (click)="remove(player)">-</div>
+            <span style="display: block; margin-right: 8px;"></span>
+          <div class="remadd remaddAdd" (click)="add(player)">+</div>
+        </div>
+          <span class="espacio"></span>
+        <div class="remaddCont" style="display: flex;">
+          <div class="custom" (click)="arOne(player)" (press)="editOne(player.id)">{{ player.arOne }}</div>
+            <span style="display: block; margin-right: 8px;"></span>
+          <div class="custom" (click)="arTwo(player)" (press)="editTwo(player.id)">{{ player.arTwo }}</div>
+        </div>
+      </div>
+        <span style="display: block; margin-top: 25px; margin-bottom: 25px;"></span>
+    </div>
+  </div>
+  <!--PLAYER LP GOES HERE-->
+
+  <!--<ion-grid>
+    <ion-row responsive-sm wrap *ngFor="let player of players">
+      <ion-col >
+        1 of 2
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+
+  <!--RESPONSIVO INI-->
+  <!--<ion-grid>
+    <ion-row responsive-sm wrap>
+      <ion-col *ngFor="let player of players">
+        <div class="playerSimple" text-center style="width: 95%; margin: auto;">
+          <div class="playerPointsSimple" style="width: calc(95%); margin: auto;">
+            {{ player.lp }}
+          </div>
+            <span class="espacioSimple"></span>
+          <div class="remaddContSimple" style="display: flex;">
+            <div class="remaddSimple remaddRemSimple" (click)="remove(player)">-</div>
+              <span style="display: block; margin-right: 2.5px; margin-left: 2.5px;"></span>
+            <div class="remaddSimple remaddAddSimple" (click)="add(player)">+</div>
+          </div>
+        </div>
+          <span style="display: block; margin-top: 10px; margin-bottom: 10px;"></span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+  <!--<span id="player1" class="flipped" style="display: none;"></span>-->
+  <!--RESPONSIVO END-->
 </ion-content>

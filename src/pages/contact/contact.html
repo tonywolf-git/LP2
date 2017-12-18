@@ -1,17 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Duel Log
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
+    <ion-item *ngFor="let entry of log">
       <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      {{ entry }}
     </ion-item>
   </ion-list>
 </ion-content>

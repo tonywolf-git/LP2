@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-navbar color="dark">
+		<ion-title>Settings</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-item-group>
+		<ion-item-divider color="light">General</ion-item-divider>
+			<ion-item class="opciones">
+				<ion-label>Simple Mode (Soon™)</ion-label>
+				<ion-checkbox disabled item-right color="dark" checked="false" [(ngModel)]="settings.simple"></ion-checkbox>
+			</ion-item>
+			<ion-item class="opciones">
+				<ion-label>Flip Player 1's LP</ion-label>
+				<ion-checkbox item-right color="dark" checked="false" [(ngModel)]="settings.flipP1"></ion-checkbox>
+			</ion-item>
+			<ion-item class="opciones">
+				<ion-label color="dark">Background Image</ion-label>
+				<ion-select [(ngModel)]="settings.bg">
+					<ion-option value="{{ item }}" *ngFor="let item of bgArray">{{ item }}</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<button class="opciones" ion-item (click)="closeSettings()">Apply Settings</button> 
+	</ion-item-group>
+</ion-content>

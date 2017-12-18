@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +8,12 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+	log = JSON.parse(localStorage.getItem('log'));
 
+  constructor(public navCtrl: NavController, public events: Events) {
+  	events.subscribe('lp:changed', (log) => {
+      console.log('"this.lp" Changed:', log);
+      this.log = JSON.parse(localStorage.getItem('log'));
+    });
   }
-
 }

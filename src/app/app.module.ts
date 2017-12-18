@@ -11,6 +11,17 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { File } from '@ionic-native/file';
+
+import { FileChooser } from '@ionic-native/file-chooser';
+
+import { SettingsPageModule } from '../pages/modals/settings/settings.module';
+
+import { Insomnia } from '@ionic-native/insomnia';
+
+import { Toast } from '@ionic-native/toast';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,6 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    SettingsPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +46,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    FileChooser,
+    Insomnia,
+    Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

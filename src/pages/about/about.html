@@ -1,11 +1,9 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-
+<ion-content class="bgColor">
+	<div text-center class="total_center">
+		<h1 id="progress">{{ word }}</h1>
+		<img width="100px" src="{{ dacoin }}">
+	</div>
+	<ion-footer text-center no-border>
+		<button ion-button block large color="dark" disabled={{buttonDisabled}} (click)="randomThis()">TOSS IT</button>
+	</ion-footer>
 </ion-content>

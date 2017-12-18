@@ -1,0 +1,24 @@
+page-settings {
+	.opciones {
+		font-size: 20px;
+	}
+
+	@media all and (orientation:landscape) {
+		.alert-radio-group {
+			max-height: 120px !important;
+			height: 40px !important;
+		}
+
+		.alert-wrapper {
+			height: 280px;
+		}
+
+		[ng-reflect-ng-switch] {
+			overflow: auto;
+		}
+		
+		.alert-radio-group {
+			max-height: 180px !important;
+		}
+	}
+}
