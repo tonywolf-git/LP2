@@ -154,10 +154,10 @@ export class HomePage {
             if (succ[0].flipped == true) {
               console.log(succ);
               document.getElementById('player1').classList.add('flipped');
-              console.log('LINEA 150: "FLIPPED ES TRUE"');
+              console.log('LINEA 157: "FLIPPED ES TRUE"');
             } else {
               document.getElementById('player1').classList.remove('flipped');
-              console.log('LINEA 153: "FLIPPED ES FALSE"')
+              console.log('LINEA 160: "FLIPPED ES FALSE"')
             }
           }, 100);
         });
@@ -188,11 +188,16 @@ export class HomePage {
   				text: 'Remove',
   				handler: data => {
             //this.players[player.id-1].lp = this.zeroPad((this.players[player.id-1].lp -= parseInt(data.lp)), 4);
-            this.players[player.id-1].lp -= parseInt(data.lp);
-            this.log.push('Player ' + String(player.id) + ' : -' + data.lp + ' LP');
-            console.log(this.log);
-            localStorage.setItem('log', JSON.stringify(this.log));
-            this.events.publish('lp:changed', this.log, Date.now());
+            console.log('Data Remove: ', data);
+            if (data.lp == '') {
+              //NEIN
+            } else {
+              this.players[player.id-1].lp -= parseInt(data.lp);
+              this.log.push('Player ' + String(player.id) + ' : -' + data.lp + ' LP');
+              console.log(this.log);
+              localStorage.setItem('log', JSON.stringify(this.log));
+              this.events.publish('lp:changed', this.log, Date.now());
+            }
   				}
   			}
   		]
@@ -221,12 +226,16 @@ export class HomePage {
   			{
   				text: 'Add',
   				handler: data => {
-  					//this.players[player.id-1].lp = this.zeroPad((this.players[player.id-1].lp += parseInt(data.lp)), 4);
-            this.players[player.id-1].lp += parseInt(data.lp);
-            this.log.push('Player ' + String(player.id) + ' : ' + data.lp + ' LP');
-            console.log(this.log);
-            localStorage.setItem('log', JSON.stringify(this.log));
-            this.events.publish('lp:changed', this.log, Date.now());
+            if (data.lp == '') {
+              //NEIN
+            } else {
+  					  //this.players[player.id-1].lp = this.zeroPad((this.players[player.id-1].lp += parseInt(data.lp)), 4);
+              this.players[player.id-1].lp += parseInt(data.lp);
+              this.log.push('Player ' + String(player.id) + ' : ' + data.lp + ' LP');
+              console.log(this.log);
+              localStorage.setItem('log', JSON.stringify(this.log));
+              this.events.publish('lp:changed', this.log, Date.now());
+            }
   				}
   			}
   		]

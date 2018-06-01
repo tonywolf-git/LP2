@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sound Board</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>
+        <ion-col fixed>
+          <!--<button ion-button block large (click)="playAudio('cosa')">Amano Iwato</button>-->
+          <img src="assets/imgs/amano.jpg" class="soundButton" (click)="playAudio('amano')">
+        </ion-col>
+        <ion-col fixed>
+          <!--<button ion-button block large>Nuke</button>-->
+          <img src="assets/imgs/nuke.jpg" class="soundButton" (click)="playAudio('nuke')">          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col fixed>
+          <button ion-button block large>I'm Kaiba</button>          
+        </ion-col>
+        <ion-col fixed>
+          <button ion-button block large>Exodia</button>          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col fixed>
+          <button ion-button block large>Blue-Eyes</button>          
+        </ion-col>
+        <ion-col fixed>
+          <button ion-button block large>Attack</button>          
+        </ion-col>
+      </ion-row>
+        <ion-row>
+          <ion-col fixed>
+            <!--<button ion-button block large>Nuke</button>-->
+            <img src="assets/imgs/stop.jpg" class="soundButton" (click)="stopSounds()">          
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

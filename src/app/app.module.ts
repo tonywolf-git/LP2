@@ -16,10 +16,16 @@ import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 
 import { SettingsPageModule } from '../pages/modals/settings/settings.module';
+import { SoundPageModule } from '../pages/sound/sound.module';
 
 import { Insomnia } from '@ionic-native/insomnia';
 
 import { Toast } from '@ionic-native/toast';
+
+import { NativeAudio } from '@ionic-native/native-audio';
+
+import { HeaderColor } from '@ionic-native/header-color';
+
 
 
 @NgModule({
@@ -33,6 +39,7 @@ import { Toast } from '@ionic-native/toast';
   imports: [
     BrowserModule,
     SettingsPageModule,
+    SoundPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -50,6 +57,8 @@ import { Toast } from '@ionic-native/toast';
     FileChooser,
     Insomnia,
     Toast,
+    NativeAudio,
+    HeaderColor,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
